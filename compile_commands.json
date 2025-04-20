@@ -1,0 +1,16 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-g3",
+      "-I./include",
+      "-c",
+      "-o",
+      "src/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/rax/template",
+    "file": "/home/rax/template/src/main.c",
+    "output": "/home/rax/template/src/main.o"
+  }
+]
