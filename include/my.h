@@ -32,8 +32,9 @@ size_t template(const char *argv[]);
 //  ** /LIB **  //
 
 //  ** write **  //
-void write_char(const char);
-void write_text(const char *);
+int write_char(const char c);
+int write_text(const char *str);
+int write_arr(const char **arr);
 
 //  ** compare **  //
 size_t cmp_str(const char *s1, const char *s2);

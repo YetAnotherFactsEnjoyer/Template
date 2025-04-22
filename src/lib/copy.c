@@ -13,7 +13,7 @@ void cpy_str(char *dest, const char *src)
 
     if (!dest || !src)
         return;
-    for (; dest[i] != '\0' && src[i] != '\0'; i++)
+    for (; src[i] != '\0'; i++)
         dest[i] = src[i];
     dest[i] = '\0';
 }
@@ -24,7 +24,7 @@ void cpy_n_str(char *dest, const char *src, const size_t limit)
 
     if (!dest || !src)
         return;
-    for (; i < limit && dest[i] != '\0' && src[i] != '\0'; i++)
+    for (; i < limit && src[i] != '\0'; i++)
         dest[i] = src[i];
     dest[i] = '\0';
 }

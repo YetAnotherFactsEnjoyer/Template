@@ -26,7 +26,7 @@ char *dup_n_str(const char *str, const size_t limit)
 
     if (!str)
         return NULL;
-    new_str = malloc(sizeof(char) * str_len(str) + 1);
+    new_str = malloc(sizeof(char) * limit + 1);
     if (!new_str)
         return NULL;
     cpy_n_str(new_str, str, limit);

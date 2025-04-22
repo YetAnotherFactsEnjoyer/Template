@@ -1,20 +1,35 @@
 /*
 ** EPITECH PROJECT, 2025
-** utils.c
+** lib
 ** File description:
-** utils
+** write
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
-void write_char(char c)
+int write_char(const char c)
 {
+    if (!c)
+        return EXIT_FAIL;
     write(1, &c, 1);
+    return EXIT_SUCCESS;
 }
 
-void write_text(const char *str)
+int write_text(const char *str)
 {
     if (!str)
-        return;
-    write(1, &str, str_len(str));
+        return EXIT_FAIL;
+    write(1, str, str_len(str));
+    return EXIT_SUCCESS;
+}
+
+int write_arr(const char **arr)
+{
+    if (!arr)
+        return EXIT_FAIL;
+    for (size_t i = 0; arr[i] != NULL; i++){
+        write_text(arr[i]);
+        write_text("\n");
+    }
+    return EXIT_SUCCESS;
 }

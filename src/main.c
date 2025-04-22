@@ -9,7 +9,5 @@
 
 int main(const int argc, const char *argv[])
 {
-    if (template(argv) == EXIT_ERROR)
-        return EXIT_ERROR;
-    return 0;
+    return template(argv);
 }

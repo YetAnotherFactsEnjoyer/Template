@@ -30,13 +30,13 @@ DIR_TEST = tests/
 
 TEST_FILES	=	lib_test.c	\
 
-TOBJ	=	src/camel_form.c	\
+TOBJ	=	src/template.c	\
 		$(addprefix $(DIR_TEST), $(TEST_FILES))	\
 		$(addprefix $(DIR_SRC), $(addprefix $(DIR_LIB), $(LIB_FILES)))
 
 CFLAGS		=	-g3 -I./include
 
-BINARY		=	camelcase_formatter
+BINARY		=	template
 
 all: 	compile clean
 		@echo "Makefile -> all"

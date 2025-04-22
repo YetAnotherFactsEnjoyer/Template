@@ -18,6 +18,13 @@ Test(str_to_int, lib)
     cr_expect(str_to_int("896345") == 896345);
 }
 
+Test(int_to_str, lib)
+{
+    cr_expect(cmp_str(int_to_str(9), "9") == 0);
+    cr_expect(cmp_str(int_to_str(0), "0") == 0);
+    cr_expect(cmp_str(int_to_str(1034), "1034") == 0);
+}
+
 Test(str_len, lib)
 {
     cr_expect(str_len("") == 0);
@@ -43,30 +50,50 @@ Test(get_arr_len, lib)
 
 Test(read_file, lib)
 {
-    cr_expect(my_strcmp(read_file("tests/example.txt"), "Hello World\n") == 0);
+    cr_expect(cmp_str(read_file("tests/example.txt"), "Hello World\n") == 0);
 }
 
-Test(int_to_str, lib)
+Test(cut, lib)
 {
-    cr_expect(my_strcmp(int_to_str(9), "9") == 0);
-    cr_expect(my_strcmp(int_to_str(0), "0") == 0);
-    cr_expect(my_strcmp(int_to_str(1034), "1034") == 0);
+    const char *str = "Hello World is_sucessfull";
+    char **arr = NULL;
+
+    arr = cut(str, " _");
+    cr_expect(cmp_str(arr[0], "Hello") == 0);
+    cr_expect(cmp_str(arr[4], "sucessfull") == 0);
 }
 
-Test(str_toward_delim, lib)
+Test(cmp_str, lib)
 {
-    const char *str = "Hello World is sucessfull";
-    const char sep = ' ';
-    char **arr = str_delime_array(str, sep);
-
-    cr_expect(my_strcmp(arr[0], "Hello") == 0);
+    cr_expect(cmp_str("a", "a") == 0);
+    cr_expect(cmp_str("a", "") == 0);
+    cr_expect(cmp_str("abcdefg", "abcdefg") == 0);
+    cr_expect(cmp_str("a", "b") == -1);
+    cr_expect(cmp_str("b", "a") == 1);
 }
 
-Test(my_strcmp, lib)
+Test(cmp_n_str, lib)
 {
-    cr_expect(my_strcmp("a", "a") == 0);
-    cr_expect(my_strcmp("a", "") == 0);
-    cr_expect(my_strcmp("abcdefg", "abcdefg") == 0);
-    cr_expect(my_strcmp("a", "b") == -1);
-    cr_expect(my_strcmp("b", "a") == 1);
+    cr_expect(cmp_n_str("a", "a", 1) == 0);
+    cr_expect(cmp_n_str("a", "", 1) == 0);
+    cr_expect(cmp_n_str("abcdefg", "abcdefg", 7) == 0);
+}
+
+Test(cpy_str, lib)
+{
+    const char *src = "archlinux on top";
+    char dest[17];
+
+    cpy_str(dest, src);
+    cr_expect(cmp_str(dest, "archlinux on top") == 0);
+    cr_expect(cmp_str(dest, "brchlinux on top") == -1);
+}
+
+Test(cpy_n_str, lib)
+{
+    const char *src = "arc on top";
+    char dest[11];
+
+    cpy_n_str(dest, src, 5);
+    cr_expect(cmp_str(dest, "arc o") == 0);
 }
