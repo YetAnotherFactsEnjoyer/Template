@@ -60,7 +60,7 @@ Test(cut, lib)
 
     arr = cut(str, " _");
     cr_expect(cmp_str(arr[0], "Hello") == 0);
-    cr_expect(cmp_str(arr[4], "sucessfull") == 0);
+    cr_expect(cmp_str(arr[3], "sucessfull") == 0);
 }
 
 Test(cmp_str, lib)
