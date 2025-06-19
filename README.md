@@ -1,1 +1,1 @@
-©️ C template with personal library and Makefile 
+©️ C template
